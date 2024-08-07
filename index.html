@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Danfo&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Reddit+Sans:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="weater-card">
+      <div class="weather-card__inner">
+        <div class="search-city">
+          <input type="text" class="city__input" />
+        </div>
+        <div class="header">
+          <div class="header__inner">
+            <h2 class="city"></h2>
+            <p class="country"></p>
+            <p class="time"></p>
+          </div>
+        </div>
+        <div class="main">
+          <img src="" alt="" class="wether__img" />
+          <div class="main__info">
+            <h1 class="temp"></h1>
+            <img class="temp__img" src="d.svg" alt="" />
+            <p class="weather-main"></p>
+          </div>
+        </div>
+        <div class="other-info">
+          <div class="info">
+            <p class="info__text">RainFall</p>
+            <p class="info__metric" id="rainFall"></p>
+          </div>
+          <div class="info">
+            <p class="info__text">Wind</p>
+            <p class="info__metric" id="wind"></p>
+          </div>
+          <div class="info">
+            <p class="info__text">Humidity</p>
+            <p class="info__metric" id="humidity"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
