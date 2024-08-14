@@ -69,6 +69,7 @@ body {
 }
 
 .search-city {
+  position: relative;
   grid-area: 1/1/2/2;
   display: flex;
   justify-content: center;
@@ -79,13 +80,67 @@ body {
   appearance: none;
   border: none;
   height: 45px;
-  width: 100%;
+  /* width: 100%; */
   background-color: rgb(255, 255, 255, 0.36);
   border: 0.5px solid rgb(255, 255, 255, 0.5);
   border-radius: 14px;
   font-size: 16px;
   font-weight: 600;
-  padding-left: 10px;
+}
+
+.unit {
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  left: 230px;
+  height: 40px;
+  width: 80px;
+  opacity: 0;
+}
+
+.choose-units {
+  position: relative;
+  height: 45px;
+  width: 80px;
+  background-color: rgb(255, 255, 255, 0.2);
+  border: 0.5px solid rgb(255, 255, 255, 0.5);
+  border-radius: 14px;
+  margin-left: 10px;
+}
+
+.choose-units::before {
+  position: absolute;
+  content: "";
+  top: 7px;
+  left: 38px;
+  height: 30px;
+  width: 2px;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 14px;
+}
+
+.choose-units::after {
+  position: absolute;
+  content: "°C";
+  top: 3px;
+  left: 3px;
+  height: 38px;
+  width: 30px;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(0);
+  transition: transform 0.4s;
+  font-family: "Inter", sans-serif;
+  color: #9a938c;
+  font-size: 18px;
+}
+
+.unit:checked + .choose-units::after {
+  content: "°F";
+  transform: translateX(42px);
 }
 
 .header {
