@@ -14,22 +14,16 @@
 
 // const locationUrl = "http://api.db-ip.com/v2/free/self"; // разблокируй для автоматического определения местоположения
 
-// async function userLocation() {
-//   try {
-//     const rawData = await fetch(locationUrl);
-//     const textData = await rawData.text();
-//     const data = JSON.parse(textData);
-//     return data.city;
-//   } catch (error) {
-//     console.log(`${error}`);
-//   }
-// }
-
-// document.addEventListener("DOMContentLoaded", async () => {
-//   let unit = units.checked ? "imperial" : "metric";
-//   const locationCity = await userLocation();
-//   makeCard(locationCity, unit);
-// });
+async function userLocation() {
+  try {
+    const rawData = await fetch(locationUrl);
+    const textData = await rawData.text();
+    const data = JSON.parse(textData);
+    return data.city;
+  } catch (error) {
+    console.log(`${error}`);
+  }
+}
 
 const timeApi = "http://worldtimeapi.org/api/timezone/Europe/Vaduz";
 
@@ -117,7 +111,11 @@ async function makeCard(city, unit) {
   }
 }
 
-
+document.addEventListener("DOMContentLoaded", async () => {
+  let unit = units.checked ? "imperial" : "metric";
+  const locationCity = await userLocation();
+  makeCard(locationCity, unit);
+});
 
 cityInput.addEventListener("change", () => {
   let unit = units.checked ? "imperial" : "metric";
