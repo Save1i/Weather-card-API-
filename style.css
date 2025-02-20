@@ -103,7 +103,7 @@ body {
   height: 45px;
   width: 80px;
   background-color: rgb(255, 255, 255, 0.2);
-  border: 0.5px solid rgb(255, 255, 255, 0.5);
+  border: 0.5px solid rgb(255, 255, 255, 1);
   border-radius: 14px;
   margin-left: 10px;
 }
@@ -126,7 +126,7 @@ body {
   left: 3px;
   height: 38px;
   width: 30px;
-  background-color: rgb(255, 255, 255, 0.5);
+  background-color: rgb(255, 255, 255, 0.7);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -213,6 +213,7 @@ body {
   flex-direction: column;
   justify-content: end;
   gap: 10px;
+  position: relative;
 }
 
 .info {
@@ -237,4 +238,42 @@ body {
 
 .hidden {
   display: none;
+}
+
+.carusel-back__btn {
+  position: absolute;
+  content: "";
+  height: 215px;
+  width: 40px;
+  top: 42px;
+  left: -25px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.08) 100%);
+  opacity: 0;
+  z-index: 10;
+}
+
+.carusel-back__btn:hover {
+  position: absolute;
+  content: "";
+  opacity: 0.5;
+  z-index: 10;
+}
+
+.carusel-forward__btn {
+  position: absolute;
+  content: "";
+  height: 215px;
+  width: 40px;
+  top: 42px;
+  right: -25px;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.08) 100%);
+  opacity: 0;
+  z-index: 10;
+}
+
+.carusel-forward__btn:hover {
+  position: absolute;
+  content: "";
+  opacity: 0.5;
+  z-index: 10;
 }

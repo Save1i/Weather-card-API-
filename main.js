@@ -14,18 +14,22 @@
 
 // const locationUrl = "http://api.db-ip.com/v2/free/self"; // разблокируй для автоматического определения местоположения
 
-async function userLocation() {
-  try {
-    const rawData = await fetch(locationUrl);
-    const textData = await rawData.text();
-    const data = JSON.parse(textData);
-    return data.city;
-  } catch (error) {
-    console.log(`${error}`);
-  }
-}
+// async function userLocation() {
+//   try {
+//     const rawData = await fetch(locationUrl);
+//     const textData = await rawData.text();
+//     const data = JSON.parse(textData);
+//     return data.city;
+//   } catch (error) {
+//     console.log(`${error}`);
+//   }
+// }
 
-let local = "";
+// document.addEventListener("DOMContentLoaded", async () => {
+//   let unit = units.checked ? "imperial" : "metric";
+//   const locationCity = await userLocation();
+//   makeCard(locationCity, unit);
+// });
 
 const timeApi = "http://worldtimeapi.org/api/timezone/Europe/Vaduz";
 
@@ -51,15 +55,17 @@ async function timeZone() {
 
 timeZone();
 
+const cityInput = document.querySelector(".city__input");
+
 const Apiurl = `https://api.openweathermap.org/data/2.5/weather?`;
 let myApiKey = "2648abbb783df953999876283f68f540";
-const cityInput = document.querySelector(".city__input");
 
 async function getData(city, unit) {
   try {
     const resp = await fetch(Apiurl + `units=${unit}&q=` + city + `&appid=${myApiKey}`, {
       mode: "cors",
     });
+
     const data = await resp.json();
     console.log(data);
     return data;
@@ -111,17 +117,21 @@ async function makeCard(city, unit) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  let unit = units.checked ? " imperial" : "metric";
-  const locationCity = await userLocation();
-  makeCard(locationCity, unit);
-});
+
 
 cityInput.addEventListener("change", () => {
-  let unit = units.checked ? " imperial" : "metric";
+  let unit = units.checked ? "imperial" : "metric";
   console.log(unit);
   makeCard(cityInput.value, unit);
   console.log("Selected city:", cityInput.value);
+});
+
+const units = document.querySelector(".unit");
+units.addEventListener("click", () => {
+  let unit = units.checked ? "imperial" : "metric";
+
+  console.log(unit);
+  makeCard(cityInput.value, unit);
 });
 
 const ApiHourly = `https://api.openweathermap.org/data/2.5/forecast?`;
@@ -140,12 +150,3 @@ async function getDataHourly(lat, lon) {
 }
 
 getDataHourly(53.9, 27.5667);
-
-const units = document.querySelector(".unit");
-
-units.addEventListener("click", () => {
-  let unit = units.checked ? " imperial" : "metric";
-
-  console.log(unit);
-  makeCard(cityInput.value, unit);
-});
