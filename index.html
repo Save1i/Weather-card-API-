@@ -17,6 +17,8 @@
       <div class="weather-card__inner">
         <div class="search-city">
           <input type="text" class="city__input" />
+          <input type="checkbox" class="unit" />
+          <div class="choose-units active"></div>
         </div>
         <div class="header">
           <div class="header__inner">
@@ -29,11 +31,12 @@
           <img src="" alt="" class="wether__img" />
           <div class="main__info">
             <h1 class="temp"></h1>
-            <img class="temp__img" src="d.svg" alt="" />
+            <p class="temp__img">°C</p>
             <p class="weather-main"></p>
           </div>
         </div>
         <div class="other-info">
+          <div class="carusel-back__btn"></div>
           <div class="info">
             <p class="info__text">RainFall</p>
             <p class="info__metric" id="rainFall"></p>
@@ -46,10 +49,11 @@
             <p class="info__text">Humidity</p>
             <p class="info__metric" id="humidity"></p>
           </div>
+          <div class="carusel-forward__btn"></div>
         </div>
       </div>
     </div>
 
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>
